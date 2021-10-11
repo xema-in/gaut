@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta http-equiv='Cache-Control' content='no-cache, no-store, must-revalidate' />
+    <meta http-equiv='Pragma' content='no-cache' />
+    <meta http-equiv='Expires' content='0' />
+</head>
+
+<body>
+
+    <script>
+        // console.log(window.location);
+        const url = new URL(window.location);
+
+        const params = new URLSearchParams(url.search);
+
+        const callback = params.get('callback');
+        const state = params.get('state');
+        const scope = params.get('scope');
+
+        localStorage.setItem('callback', callback);
+
+        const client_id = '640445879129-b94cdhg33u6umtbi8t6d3m2so1ktoegv.apps.googleusercontent.com';
+        const access_type = 'offline';
+        const redirect_uri = 'https://gaut.xema.in/response.html';
+
+        window.location.href =
+            'https://accounts.google.com/o/oauth2/v2/auth' +
+            '?scope=' + scope +
+            '&client_id=' + client_id +
+            '&response_type=code' +
+            '&access_type=' + access_type +
+            '&redirect_uri=' + redirect_uri +
+            '&state=' + state +
+            '&include_granted_scopes=true' +
+            '&prompt=consent​';
+
+    </script>
+
+    <p>Redirecting ...</p>
+
+</body>
+
+</html>
